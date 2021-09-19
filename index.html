@@ -2,22 +2,21 @@
 <html lang="en">
   <head>
     <title>Ketta_wakeword_recog</title>
-    <!-- don't mind these: -->
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- these load the stylesheets: -->
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Barlow:500"
     />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- these load the tensorflow and audio libraries: -->
-    <!-- more documentation at https://github.com/tensorflow/tfjs-models/tree/master/speech-commands -->
+
     <script src="./js/tf.min.js"></script>
     <script src="./js/speech-commands.min.js"></script>
-    <!-- these load our code: -->
+
     <script type="module" src="./js/model-runner.js"></script>
     <script type="module" src="./js/bar-graph.js"></script>
     <script type="module" src="./js/audio-visualizer.js"></script>
@@ -41,38 +40,16 @@
     <section id="info">
 
     </section>
-    <footer>
-      <h2>
-        <a href="https://glitch.com/edit/#!/remix/tm-audio-demo">
-          Remix this site on Glitch
-        </a>
-      </h2>
-    </footer>
 
     <script type="module">
       import { setupModel } from "./js/model-runner.js";
       import { setupBarGraph, updateBarGraph } from "./js/bar-graph.js";
 
-      //           _____             .|                      _.._     ,.--.
-      //   _.._    \  __`'.        .' |_      _  __  ___    / .. `.  //    \
-      //  / .. `.   | |-.\ \ .-. .'     |    | |/  `.'  `. / /__\  \ \\    /
-      // / /__\  \  | |   \ ||_|'--.  .-'    |  .-. .-.  '| .-----'`  `'--'
-      //| .-----'`  | |   / |.-.   |  |      | |  | |  | | \ '-...--. ,.--.
-      // \ '-...--. | |_.' /|| |   |  '.'    | |  | |  | |  `. ___.' //    \
-      //  `. ___.' /_____.'/ | |   |   /     |_|  |_|  |_|           \\    /
-      //           \_____|/  |_|   `'-'                               `'--'
-      // train your own model using [TODO_TM2_URL], and replace this URL with your own
+
       let URL = "https://raw.githubusercontent.com/STRT-Official/Ketta_WW_module/main/";
 
-      // setupBarGraph is defined in the js/bar-graph.js file
       setupBarGraph(URL);
 
-      // setupModel is defined in the js/model-runner.js file
-      // we pass in two functions:
-      // updateBarGraph (defined in the js/bar-graph.js file)
-      // and updateAudioVisualizer (defined in the js/audio-visualizer.js file)
-      // setupModel will store these functions,
-      // and call them every time it has new data from the model
       setupModel(URL, data => {
         updateBarGraph(data);
       });
